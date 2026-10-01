@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление ролями</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f8f9fa; }
+        table { width: 100%; border-collapse: collapse; background: white; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #343a40; color: white; }
+        .btn { padding: 6px 12px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<a th:href="@{/}" style="padding: 8px 12px; background:#6c757d; color:white; text-decoration:none; border-radius:4px;">← На главную</a>
+<h2>Управление ролями пользователей (ADMIN)</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Логин</th>
+        <th>Текущие роли</th>
+        <th>Изменить роли</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.roles}"></td>
+        <td>
+            <form th:action="@{/admin/roles/update}" method="post">
+                <input type="hidden" name="userId" th:value="${user.id}"/>
+
+                <label>
+                    <input type="checkbox" name="roles" value="ROLE_READ_ONLY"
+                           th:checked="${#lists.contains(user.roles.![name()], 'ROLE_READ_ONLY')}"> READ_ONLY
+                </label>
+                &nbsp;
+                <label>
+                    <input type="checkbox" name="roles" value="ROLE_USER"
+                           th:checked="${#lists.contains(user.roles.![name()], 'ROLE_USER')}"> USER
+                </label>
+                &nbsp;
+                <label>
+                    <input type="checkbox" name="roles" value="ROLE_ADMIN"
+                           th:checked="${#lists.contains(user.roles.![name()], 'ROLE_ADMIN')}"> ADMIN
+                </label>
+                &nbsp;
+                <button type="submit" class="btn">Сохранить</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

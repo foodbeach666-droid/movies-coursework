@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Фильмы и Актеры</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; background: white; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        .btn { padding: 6px 12px; background: #28a745; color: white; text-decoration: none; border-radius: 4px; display: inline-block; margin-bottom: 10px; font-size: 14px; }
+        .btn-warning { background: #ffc107; color: #212529; margin-right: 5px; }
+        .btn-danger { background: #dc3545; }
+    </style>
+</head>
+<body>
+<a th:href="@{/}" class="btn" style="background:#6c757d;">← На главную</a>
+
+<h2>1. Таблица фильмов</h2>
+<a th:href="@{/movies/add}" class="btn" sec:authorize="hasAnyAuthority('USER', 'ROLE_USER', 'ADMIN', 'ROLE_ADMIN')">+ Добавить фильм</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Жанр</th>
+        <th>Год</th>
+        <th>Кассовые сборы ($ млн)</th>
+        <th>Создатель</th>
+        <th sec:authorize="hasAnyAuthority('USER', 'ROLE_USER', 'ADMIN', 'ROLE_ADMIN')">Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.id}"></td>
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.genre}"></td>
+        <td th:text="${movie.releaseYear}"></td>
+        <td th:text="${movie.boxOffice}"></td>
+        <td th:text="${movie.createdBy}"></td>
+        <td sec:authorize="hasAnyAuthority('USER', 'ROLE_USER', 'ADMIN', 'ROLE_ADMIN')">
+            <a th:href="@{/movies/edit/{id}(id=${movie.id})}" class="btn btn-warning">Редактировать</a>
+            <a th:href="@{/movies/delete/{id}(id=${movie.id})}" class="btn btn-danger" onclick="return confirm('Удалить?')">Удалить</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>2. Таблица актеров</h2>
+<a th:href="@{/movies/actor/add}" class="btn" sec:authorize="hasAnyAuthority('USER', 'ROLE_USER', 'ADMIN', 'ROLE_ADMIN')">+ Добавить актера</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя актера</th>
+        <th>Роль</th>
+        <th>Гонорар ($ млн)</th>
+        <th>Фильм</th>
+        <th sec:authorize="hasAnyAuthority('USER', 'ROLE_USER', 'ADMIN', 'ROLE_ADMIN')">Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="actor : ${actors}">
+        <td th:text="${actor.id}"></td>
+        <td th:text="${actor.name}"></td>
+        <td th:text="${actor.roleName}"></td>
+        <td th:text="${actor.fee}"></td>
+        <td th:text="${actor.movie != null ? actor.movie.title : 'Не указан'}"></td>
+        <td sec:authorize="hasAnyAuthority('USER', 'ROLE_USER', 'ADMIN', 'ROLE_ADMIN')">
+            <a th:href="@{/movies/actor/edit/{id}(id=${actor.id})}" class="btn btn-warning">Редактировать</a>
+            <a th:href="@{/movies/actor/delete/{id}(id=${actor.id})}" class="btn btn-danger" onclick="return confirm('Удалить?')">Удалить</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

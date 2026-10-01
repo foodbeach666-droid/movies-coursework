@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f8f9fa; }
+        nav { background: #343a40; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        nav a { color: white; margin-right: 15px; text-decoration: none; font-weight: bold; }
+        .content { background: white; padding: 25px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .access-denied-box { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a th:href="@{/}">Главная</a>
+
+    <th:block sec:authorize="hasAnyAuthority('ROLE_READ_ONLY', 'READ_ONLY', 'ROLE_USER', 'USER', 'ROLE_ADMIN', 'ADMIN')">
+        <a th:href="@{/movies}">Фильмы и Актеры</a>
+        <a th:href="@{/calc}">Расчет характеристик</a>
+        <a th:href="@{/about}">О приложении</a>
+        <a th:href="@{/admin/roles}" sec:authorize="hasAnyAuthority('ROLE_ADMIN', 'ADMIN')">Управление ролями</a>
+    </th:block>
+
+    <a th:href="@{/logout}" style="float: right;">Выйти</a>
+</nav>
+
+<div class="content">
+
+    <div sec:authorize="!hasAnyAuthority('ROLE_READ_ONLY', 'READ_ONLY', 'ROLE_USER', 'USER', 'ROLE_ADMIN', 'ADMIN')" class="access-denied-box">
+        <h2>Сожалеем, но у Вас нет прав для доступа к данному сайту.</h2>
+        <p>Вы вошли как: <b sec:authentication="name">User</b></p>
+        <p>Ваш аккаунт не содержит активных ролей. Пожалуйста, обратитесь к администратору системы для получения доступа.</p>
+    </div>
+
+    <div sec:authorize="hasAnyAuthority('ROLE_READ_ONLY', 'READ_ONLY', 'ROLE_USER', 'USER', 'ROLE_ADMIN', 'ADMIN')">
+        <h1>Добро пожаловать в веб-приложение «Учет Фильмов»!</h1>
+        <p>Вы вошли как: <b sec:authentication="name">User</b></p>
+        <p>Ваши роли: <span sec:authentication="principal.authorities"></span></p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Movie {
+  - id: Long
+  - title: String
+  - director: String
+  - releaseYear: Integer
+  - genre: String
+  - boxOffice: Double
+  - createdBy: String
+  - actors: List<Actor>
+  + getters/setters()
+}
+
+class Actor {
+  - id: Long
+  - name: String
+  - roleName: String
+  - fee: Double
+  - movie: Movie
+  + getters/setters()
+}
+
+class User {
+  - id: Long
+  - username: String
+  - password: String
+  - roles: Set<Role>
+  + getters/setters()
+}
+
+Movie "1" o-- "*" Actor : содержит >
+@enduml

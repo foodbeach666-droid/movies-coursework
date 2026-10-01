@@ -1,0 +1,49 @@
+2026-10-02T00:35:20.529+05:00  INFO 13056 --- [movies] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-02T00:35:20.559+05:00  INFO 13056 --- [movies] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-10-02T00:35:20.647+05:00  INFO 13056 --- [movies] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T00:35:20.652+05:00  INFO 13056 --- [movies] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-02T00:35:20.657+05:00  INFO 13056 --- [movies] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-02T01:10:45.720+05:00  INFO 3908 --- [movies] [main] r.u.movies.MoviesCourseworkApplication   : Starting MoviesCourseworkApplication using Java 21.0.9 with PID 3908 (C:\Users\Lenovo\Desktop\Сессия УРФУ 2к1с\Программирование\movies-coursework\target\classes started by Lenovo in C:\Users\Lenovo\Desktop\Сессия УРФУ 2к1с\Программирование\movies-coursework)
+2026-10-02T01:10:45.720+05:00  INFO 3908 --- [movies] [main] r.u.movies.MoviesCourseworkApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-10-02T01:10:48.466+05:00  INFO 3908 --- [movies] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-02T01:10:48.575+05:00  INFO 3908 --- [movies] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 3 JPA repository interfaces.
+2026-10-02T01:10:50.260+05:00  INFO 3908 --- [movies] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-10-02T01:10:50.307+05:00  INFO 3908 --- [movies] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-02T01:10:50.307+05:00  INFO 3908 --- [movies] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-02T01:10:50.508+05:00  INFO 3908 --- [movies] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 4671 ms
+2026-10-02T01:10:51.312+05:00  INFO 3908 --- [movies] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-02T01:10:51.734+05:00  INFO 3908 --- [movies] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-02T01:10:53.330+05:00  INFO 3908 --- [movies] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-02T01:10:53.564+05:00  INFO 3908 --- [movies] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-02T01:10:54.196+05:00  INFO 3908 --- [movies] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:moviesdb user=SA
+2026-10-02T01:10:54.196+05:00  INFO 3908 --- [movies] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-02T01:10:54.547+05:00  INFO 3908 --- [movies] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:moviesdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: MOVIESDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-02T01:10:58.088+05:00  INFO 3908 --- [movies] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-02T01:10:58.244+05:00  INFO 3908 --- [movies] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T01:10:58.400+05:00  INFO 3908 --- [movies] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-02T01:10:59.172+05:00  WARN 3908 --- [movies] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-02T01:10:59.313+05:00  INFO 3908 --- [movies] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-10-02T01:10:59.782+05:00  INFO 3908 --- [movies] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-10-02T01:11:00.327+05:00  INFO 3908 --- [movies] [main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:moviesdb'
+2026-10-02T01:11:00.405+05:00  INFO 3908 --- [movies] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-10-02T01:11:00.783+05:00  INFO 3908 --- [movies] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-10-02T01:11:00.799+05:00  INFO 3908 --- [movies] [main] r.u.movies.MoviesCourseworkApplication   : Started MoviesCourseworkApplication in 16.504 seconds (process running for 17.87)
+2026-10-02T01:11:04.718+05:00  INFO 3908 --- [movies] [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-02T01:11:04.718+05:00  INFO 3908 --- [movies] [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-02T01:11:04.718+05:00  INFO 3908 --- [movies] [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-10-02T02:37:34.792+05:00  INFO 3908 --- [movies] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-02T02:37:34.810+05:00  INFO 3908 --- [movies] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-10-02T02:37:34.910+05:00  INFO 3908 --- [movies] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T02:37:34.910+05:00  INFO 3908 --- [movies] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-02T02:37:34.910+05:00  INFO 3908 --- [movies] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>О приложении</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+
+<a th:href="@{/}" class="btn btn-secondary mb-4">&larr; На главную</a>
+
+<div class="card p-4 shadow-sm">
+    <h2 class="mb-3">О приложении «Учет Фильмов»</h2>
+    <p class="lead">
+        Данный сервис представляет собой курсовой проект, разработанный для учета и управления каталогом фильмов,
+        актерским составом и финансовыми показателями (кассовыми сборами и гонорарами).
+    </p>
+
+    <hr>
+
+    <h4>Функциональные возможности:</h4>
+    <ul>
+        <li>Управление каталогом фильмов (добавление, редактирование, удаление).</li>
+        <li>Ведение базы данных актеров и привязка их к соответствующим кинокартинам.</li>
+        <li>Расчет суммарных и средних кассовых сборов.</li>
+        <li>Разграничение прав доступа (Пользователь / Администратор).</li>
+    </ul>
+
+    <h4 class="mt-3">Стек технологий:</h4>
+    <ul>
+        <li><strong>Backend:</strong> Java 17, Spring Boot, Spring Data JPA, Spring Security</li>
+        <li><strong>Frontend:</strong> Thymeleaf, HTML5, CSS3, Bootstrap 5</li>
+        <li><strong>База данных:</strong> H2 Database / MySQL</li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+package ru.urfu.movies.entity;
+
+public enum Role {
+    ROLE_READ_ONLY,
+    ROLE_USER,
+    ROLE_ADMIN
+}
